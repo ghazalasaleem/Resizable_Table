@@ -1,0 +1,14 @@
+.grid {
+  margin: 10px;
+  .ant-table table {
+    width: auto;
+    .ant-table-cell {
+      width: max-content;
+      overflow: hidden;
+      white-space: nowrap;
+      &.ant-table-cell-ellipsis {
+        max-width: 200px;
+      }
+    }
+  }
+}
