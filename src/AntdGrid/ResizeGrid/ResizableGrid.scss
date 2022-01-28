@@ -1,27 +1,37 @@
 .resizeGrid {
   &.autofit {
     .ant-table table {
-      // width: auto;
+      width: auto;
     }
   }
-  .ant-table table {
-    // min-width: 100%;
-    // max-width: max-content;
-    user-select: none;
-    table-layout: auto !important;
-    .ant-table-cell {
-      min-width: 150px;
-      &:not(.ant-table-cell-ellipsis) {
-        // width: max-content;
-        // width: 500px;
-        overflow: hidden;
-        white-space: nowrap;
+  .ant-table .ant-table-content {
+    overflow-x: auto;
+    table {
+      user-select: none;
+      table-layout: auto;
+      .ant-table-cell {
+        &:not(.ant-table-cell-ellipsis) {
+          white-space: nowrap;
+        }
       }
     }
-    th{
-      &.ant-table-cell:not(.ant-table-cell-ellipsis){
-          background-color: beige;
-      }
+  }
+  th {
+    &.ant-table-cell:not(.ant-table-cell-ellipsis) {
+      background-color: beige;
     }
   }
 }
+// table th:nth-child(1), table td:nth-child(1) {
+//   max-width: 210px;
+// }
+// table th:nth-child(2), table td:nth-child(2) {
+//   max-width: 310px;
+// }
+// table th:nth-child(3), table td:nth-child(3) {
+//   max-width: 320px;
+// }
+
+// table th:nth-child(4), table td:nth-child(4) {
+//   max-width: 350px;
+// }

@@ -6,17 +6,23 @@ import { useEffect } from 'react';
 
 /* eslint-disable jsx-a11y/control-has-associated-label */
 const ResizableTitle = (props) => {
-  const { onResize, width, isFixed, ...restProps } = props;
+  const { minWidth, maxWidth, onResize, isFixed, ...restProps } = props;
 
   useEffect(() => {
     console.log(props);
   }, [props]);
 
   return isFixed ? (
-    <th {...restProps} />
+    <th
+      {...restProps}
+      // style={{
+      //   minWidth: minWidth,
+      //   maxWidth: maxWidth
+      // }}
+    />
   ) : (
     <Resizable
-      width={width}
+      width={maxWidth}
       height={0}
       handle={
         <span
@@ -32,8 +38,8 @@ const ResizableTitle = (props) => {
       <th
         {...restProps}
         style={{
-          minWidth: width,
-          maxWidth: '700px',
+          minWidth: minWidth,
+          maxWidth: maxWidth,
         }}
       />
     </Resizable>
@@ -41,12 +47,14 @@ const ResizableTitle = (props) => {
 };
 ResizableTitle.propTypes = {
   onResize: PropTypes.func,
-  width: PropTypes.number,
+  minWidth: PropTypes.number,
+  maxWidth: PropTypes.number,
   isFixed: PropTypes.bool,
 };
 
 ResizableTitle.defaultProps = {
-  width: 20,
+  minWidth: 20,
+  maxWidth: 20,
   onResize: () => {},
   isFixed: false,
 };
