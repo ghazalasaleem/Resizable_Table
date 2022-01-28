@@ -9,6 +9,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <Grid /> */}
+    <h3>Click on cell to autofit column</h3>
     <ResizableGrid />
   </React.StrictMode>,
   document.getElementById('root')
